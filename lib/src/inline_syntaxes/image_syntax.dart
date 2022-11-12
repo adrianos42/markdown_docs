@@ -1,0 +1,33 @@
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+import '../ast.dart';
+import '../charcode.dart';
+import '../util.dart';
+import 'link_syntax.dart';
+
+/// Matches images like `![alternate text](url "optional title")` and
+/// `![alternate text][label]`.
+class ImageSyntax extends LinkSyntax {
+  ImageSyntax({super.linkResolver})
+      : super(
+          pattern: r'!\[',
+          startCharacter: $exclamation,
+        );
+
+  @override
+  Node createNode(
+    String destination,
+    String? title, {
+    required List<Node> Function() getChildren,
+  }) {
+    final children = getChildren();
+
+    return Image(
+      destination,
+      children.map((node) => node.textContent).join(),
+      title,
+    );
+  }
+}
