@@ -52,8 +52,11 @@ class TableSyntax extends BlockSyntax {
 
       if (children.isNotEmpty) {
         while (children.length < columnCount) {
-          // Insert synthetic empty cells.
-          // children.add(Text('td'));
+          children.add(TableCell(
+            [Text('')],
+            TableCellAlignment.left,
+            children.length,
+          ));
         }
         while (children.length > columnCount) {
           children.removeLast();

@@ -14,6 +14,7 @@ import 'block_syntaxes/ordered_list_syntax.dart';
 import 'block_syntaxes/paragraph_syntax.dart';
 import 'block_syntaxes/setext_header_syntax.dart';
 import 'block_syntaxes/unordered_list_syntax.dart';
+import 'block_syntaxes/table_syntax.dart';
 import 'document.dart';
 
 /// Maintains the internal state needed to parse a series of lines into blocks
@@ -57,7 +58,7 @@ class BlockParser {
     const HorizontalRuleSyntax(),
     const UnorderedListSyntax(),
     const OrderedListSyntax(),
-    const ParagraphSyntax()
+    const ParagraphSyntax(),
   ];
 
   /// Gets the current line.

@@ -28,14 +28,14 @@ class Document {
     if (inlineSyntaxes != null) {
       _inlineSyntaxes.addAll(inlineSyntaxes);
     }
-
+    
     if (extensionSet == null) {
       if (withDefaultBlockSyntaxes) {
-        _blockSyntaxes.addAll(ExtensionSet.commonMark.blockSyntaxes);
+        _blockSyntaxes.addAll(ExtensionSet.gitHubFlavored.blockSyntaxes);
       }
 
       if (withDefaultInlineSyntaxes) {
-        _inlineSyntaxes.addAll(ExtensionSet.commonMark.inlineSyntaxes);
+        _inlineSyntaxes.addAll(ExtensionSet.gitHubFlavored.inlineSyntaxes);
       }
     } else {
       _blockSyntaxes.addAll(extensionSet.blockSyntaxes);
@@ -53,8 +53,8 @@ class Document {
   /// Whether to use default inline syntaxes.
   final bool withDefaultInlineSyntaxes;
 
-  final _blockSyntaxes = <BlockSyntax>{};
-  final _inlineSyntaxes = <InlineSyntax>{};
+  final _blockSyntaxes = <BlockSyntax>[];
+  final _inlineSyntaxes = <InlineSyntax>[];
   final bool hasCustomInlineSyntaxes;
 
   Iterable<BlockSyntax> get blockSyntaxes => _blockSyntaxes;

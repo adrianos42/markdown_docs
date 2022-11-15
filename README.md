@@ -1,10 +1,10 @@
-# Markdown Builder
+# Markdown Docs
 
 Generates flutter code with markdown.
 
 ## Features
 
-This package is a adptation from the dart package [markdown](https://pub.dev/packages/markdown).
+This package is an adptation from the dart package [markdown](https://pub.dev/packages/markdown).
 
 Instead of generating html tags, it generates flutter code directely from the AST.
 

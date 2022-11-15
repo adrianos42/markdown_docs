@@ -1,7 +1,7 @@
 name: markdown_docs
 description: Markdown code generation for flutter.
-version: 1.0.0-dev.1
-# homepage: https://www.example.com
+version: 1.0.0-dev.2
+homepage: https://adrianos42.github.io/markdown_docs_flutter
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
