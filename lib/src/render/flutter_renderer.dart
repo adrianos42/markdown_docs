@@ -85,13 +85,16 @@ class FlutterRenderer implements NodeVisitor {
 
   @override
   void visitText(Text text) {
+    // Weird spec from markdown.
+    final textContent = text.textContent.replaceAll('\n', ' ');
+
     if (_hasOpenSpan.last) {
       _buffer.write('''
-        const TextSpan(text: r\'\'\'${text.textContent}\'\'\'),
+        const TextSpan(text: r\'\'\'$textContent\'\'\'),
       ''');
     } else {
       _buffer.write('''
-        const Text(r\'\'\'${text.textContent}\'\'\'),
+        const Text(r\'\'\'$textContent\'\'\'),
       ''');
     }
   }
